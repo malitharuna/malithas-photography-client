@@ -5,6 +5,7 @@ import { toast } from 'react-hot-toast';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Context';
+import ServiceReview from '../Services/ServiceReview';
 
 const ServiceDescription = () => {
   const service = useLoaderData();
@@ -12,7 +13,7 @@ const ServiceDescription = () => {
   const [reviewReload, setReviewReload] = useState(false);
   const [reviews, setReview] = useState([]);
 
-  const { Name, photoURL, description, instruction, duration, price, packageIncludes } = service;
+  const { _id, Name, photoURL, description, instruction, duration, price, packageIncludes } = service;
 
   const submitReview = (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ const ServiceDescription = () => {
     const userPhotoURL = user.photoURL;
     const displayName = user.displayName;
     const uid = user.uid;
-    // const cipePostIdre = _id;
+    const servicePostId = _id;
 
     const userFeedBack = {
       feedback,
@@ -30,12 +31,12 @@ const ServiceDescription = () => {
       userPhotoURL,
       displayName,
       uid,
-      // recipePostId,
+      servicePostId,
     };
 
     // send to server with post api
 
-    fetch(`https://alishan-kitchen.vercel.app/add/feedback`, {
+    fetch(`http://localhost:5000/add/feedback`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -65,7 +66,7 @@ const ServiceDescription = () => {
                 <img
                   src={photoURL}
                   alt="food-recipies"
-                  className="w-full h-96"
+                  className="w-1/2 h-96"
                   style={{ objectFit: "cover" }}
                 />
               </PhotoView>
@@ -81,22 +82,7 @@ const ServiceDescription = () => {
                 <p className="uppercase text-amber-500">Instruction: {instruction} </p>
                 <p>Duration :{duration}</p>
                 <p>Package-Includes: {packageIncludes}</p>
-                <div className="w-full">
-                  <div className="mt-5  bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-                    <div
-                      className="py-2 "
-                      role="menu"
-                      aria-orientation="vertical"
-                      aria-labelledby="options-menu"
-                    >
-                      {/* {ingredients.map((ingredient, index) => (
-                        <li className="text-2xl ml-2 mr-0" key={index}>
-                          {ingredient}
-                        </li>
-                      ))} */}
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -105,9 +91,9 @@ const ServiceDescription = () => {
         {/* review  */}
 
         <div>
-          {/* {reviews.map((review) => (
-            <Foodreview key={review._id} review={review} />
-          ))} */}
+          {reviews.map((review) => (
+            <ServiceReview key={review._id} review={review} />
+          ))}
         </div>
 
         {/* write comment */}
@@ -124,7 +110,7 @@ const ServiceDescription = () => {
 
               {user?.uid ? (
                 <button
-                  onClick={() => setReviewReload(false)}
+                  onClick={() => setReviewReload(true)}
                   type="submit"
                   className="py-4 my-2 font-semibold text-white rounded-md bg-violet-400"
                 >

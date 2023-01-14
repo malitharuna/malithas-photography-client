@@ -7,6 +7,9 @@ import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
 import Addservice from "../Components/Services/Addservice";
 import AllServices from "../Components/Services/AllServices";
+import EditReview from "../Components/Services/EditReview";
+import Myreview from "../Components/Services/Myreview";
+
 
 import Main from "../Layout/Main";
 
@@ -25,6 +28,10 @@ const router = createBrowserRouter([
                 element:<Home/>,
                
             },
+            {
+                path:'/addservice',
+                element: <Addservice></Addservice>
+            },
 
             {
                 path:'/showallservice',
@@ -36,12 +43,18 @@ const router = createBrowserRouter([
                 loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
+                path:'/myreview',
+                element: <Myreview></Myreview>
+            },
+            {
+                path:'/edit/review/:id',
+                loader:({params})=> fetch(`https://alishan-kitchen.vercel.app/edit/feedback/${params.id}`),
+                element:<EditReview></EditReview>
+            },
+            {
                 path:'/blog',
                 element:<Blog/>
             },
-            //  {   path:'/addservice',
-            //     element:<Addservice></Addservice>
-            // },
             {
                 path:'/register',
                 element:<Register/>
