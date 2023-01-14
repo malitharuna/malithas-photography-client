@@ -10,13 +10,16 @@ import {HelmetProvider } from 'react-helmet-async';
 import 'swiper/less';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
+import Context from './Contexts/Context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <HelmetProvider>
       
-          <App />
+      <Context>
+        <App></App>
+      </Context>
       
     </HelmetProvider>
   </React.StrictMode>

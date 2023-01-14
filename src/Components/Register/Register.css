@@ -1,0 +1,9 @@
+.auth-hero {
+	background-color: #000000;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://i.ibb.co/G5cmktC/cook-3.gif);
+  background-position: center;
+	background-size: cover;
+	color: #ffffff;
+	padding: 1em;
+	
+}

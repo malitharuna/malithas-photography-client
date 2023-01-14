@@ -1,0 +1,9 @@
+.login-hero {
+	background-color: #000000;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(https://i.ibb.co/3BX2g4b/recipie-bg.webp);
+    background-position: center;
+	background-size: cover;
+	color: #ffffff;
+	padding: 1em;
+	text-align: center;
+}
