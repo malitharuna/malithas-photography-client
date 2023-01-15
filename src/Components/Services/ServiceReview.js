@@ -3,6 +3,7 @@ import React from "react";
 
 const ServiceReview = ({ review }) => {
   const { feedback, userPhotoURL, displayName } = review;
+  console.log(review);
 
   return (
     <div className="container flex flex-col w-full mb-2 mt-5  p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-200 dark:text-gray-100">
@@ -20,7 +21,6 @@ const ServiceReview = ({ review }) => {
             <h4 className="font-bold">
               {displayName ? displayName : "Not found"}
             </h4>
-            {/* <span className="text-xs dark:text-gray-400">2 days ago</span> */}
           </div>
         </div>
       </div>

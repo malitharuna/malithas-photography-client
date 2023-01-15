@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-
 import { AuthContext } from "../../Contexts/Context";
 
-
-
 const Header = () => {
-  const {user,logOut } = useContext(AuthContext)
+  const {user, logOut } = useContext(AuthContext)
 
   const logOutHandler = () => {
     logOut()

@@ -24,7 +24,7 @@ const Addservice= () => {
     };
 
     // send data to server
-    fetch("http://localhost:5000/addservice", {
+    fetch("https://b6a11-service-review-server-side-malitharuna.vercel.app/addservice", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -96,25 +96,11 @@ const Addservice= () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text "> Package-Includes</span>
+              <span className="label-text "> Photography booking Instruction</span>
             </label>
             <div className="mt-4">
               <textarea
-                className="textarea textarea-bordered w-full h-44"
-                name="packageIncludes"
-                placeholder="Ipackage-includes"
-                required
-              ></textarea>
-            </div>
-          </div>
-
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text "> Photography Instruction</span>
-            </label>
-            <div className="mt-4">
-              <textarea
-                className="textarea textarea-bordered w-full h-44"
+                className="textarea textarea-bordered w-full h-22"
                 name="instruction"
                 placeholder="Instruction"
                 required
@@ -133,6 +119,20 @@ const Addservice= () => {
               className="input input-bordered text-black"
               required
             />
+          </div>
+          
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text "> Package-Includes</span>
+            </label>
+            <div className="mt-4">
+              <textarea
+                className="textarea textarea-bordered w-full h-44"
+                name="packageIncludes"
+                placeholder="Ipackage-includes"
+                required
+              ></textarea>
+            </div>
           </div>
 
           <div className="form-control mt-6">

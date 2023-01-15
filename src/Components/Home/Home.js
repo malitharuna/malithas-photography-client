@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLoaderData } from 'react-router-dom';
+import Contact from '../Contact/Contact';
 import News from '../News/News';
 import Banner from './Banner';
 import Services from './Services';
@@ -20,7 +21,7 @@ const Home = () => {
                  </Helmet>
                 <Banner/>
                 <Services Services={services} />
-                {/* <Contact/> */}
+                <Contact></Contact>
                 <News></News> 
 
             </div>

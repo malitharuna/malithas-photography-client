@@ -11,7 +11,7 @@ const EditReview = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/update/feedback/${updateReview._id}`, {
+    fetch(`https://b6a11-service-review-server-side-malitharuna.vercel.app/update/feedback/${updateReview._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updateReview),

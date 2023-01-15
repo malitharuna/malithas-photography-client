@@ -9,30 +9,25 @@ import Addservice from "../Components/Services/Addservice";
 import AllServices from "../Components/Services/AllServices";
 import EditReview from "../Components/Services/EditReview";
 import Myreview from "../Components/Services/Myreview";
-
-
 import Main from "../Layout/Main";
-
-
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
-   
         children:[
             {
                 path:'/',
-                loader:()=> fetch(`http://localhost:5000/services?limit=${3}`),
+                loader:()=> fetch(`https://b6a11-service-review-server-side-malitharuna.vercel.app/services?limit=${3}`),
                 element:<Home/>,
                
             },
             {
                 path:'/addservice',
-                element: <Addservice></Addservice>
+                element: <PrivateRoute><Addservice></Addservice></PrivateRoute>
             },
-
             {
                 path:'/showallservice',
                 element:<AllServices></AllServices>
@@ -40,7 +35,7 @@ const router = createBrowserRouter([
             {
                 path:'/service/description/:id',
                 element:<ServiceDescription></ServiceDescription>,
-                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params})=> fetch(`https://b6a11-service-review-server-side-malitharuna.vercel.app/services/${params.id}`)
             },
             {
                 path:'/myreview',
@@ -48,7 +43,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/edit/review/:id',
-                loader:({params})=> fetch(`https://alishan-kitchen.vercel.app/edit/feedback/${params.id}`),
+                loader:({params})=> fetch(`https://b6a11-service-review-server-side-malitharuna.vercel.app/edit/feedback/${params.id}`),
                 element:<EditReview></EditReview>
             },
             {

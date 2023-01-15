@@ -16,7 +16,7 @@ const Myreview = () => {
   useEffect(() => {
     if (user?.email) {
       fetch(
-        `http://localhost:5000/feedback?email=${user?.email}`,
+        `https://b6a11-service-review-server-side-malitharuna.vercel.app/feedback?email=${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("")}`,
@@ -36,11 +36,8 @@ const Myreview = () => {
     }
   }, [user?.email]);
 
-  // review delete handler
 
   const reviewDeleteHandler = (id) => {
-    // sweet alert for warn user
-
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -50,9 +47,8 @@ const Myreview = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      // if click yes button
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://b6a11-service-review-server-side-malitharuna.vercel.app/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

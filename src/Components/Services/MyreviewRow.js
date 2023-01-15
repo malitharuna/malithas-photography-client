@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Myreviewrow = ({ review, index, reviewDeleteHandler }) => {
-  
-  const [foodServiceInfo, setFoodServiceInfo] = useState([]); 
-  const { foodName, photoURL } = foodServiceInfo;
 
-  // load food service info , when get reivew.recipeId.
+  const [ServiceInfo, setServiceInfo] = useState([]);
+  const { Name, photoURL } = ServiceInfo;
+
+
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${review.servicePostId}`)
+    fetch(`https://b6a11-service-review-server-side-malitharuna.vercel.app/feedback/${review.servicePostId}`)
       .then((res) => res.json())
-      .then((data) => setFoodServiceInfo(data));
+      .then((data) => setServiceInfo(data));
   }, [review]);
 
   return (
@@ -19,7 +19,7 @@ const Myreviewrow = ({ review, index, reviewDeleteHandler }) => {
         {index + 1}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-800 dark:text-gray-200">
-        {foodName?.slice(0,20)+'...'}
+        {Name?.slice(0, 20) + '...'}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-md text-gray-800 dark:text-gray-200">
         <img src={photoURL} alt="" className="w-20" />

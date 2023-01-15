@@ -66,7 +66,7 @@ const Login = () => {
         };
 
         // get jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://b6a11-service-review-server-side-malitharuna.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -94,7 +94,7 @@ const Login = () => {
         };
 
         // get jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://b6a11-service-review-server-side-malitharuna.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

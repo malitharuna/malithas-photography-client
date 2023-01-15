@@ -36,7 +36,7 @@ const ServiceDescription = () => {
 
     // send to server with post api
 
-    fetch(`http://localhost:5000/add/feedback`, {
+    fetch(`https://b6a11-service-review-server-side-malitharuna.vercel.app/add/feedback`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
